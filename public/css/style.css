@@ -1,0 +1,13 @@
+.inputForm {
+  background-color: rgb(198, 215, 230);
+  border: 1px solid darkgrey;
+  border-radius: 6px;
+}
+.analyse {
+  background-color: rgb(198, 215, 230);
+  border: 1px solid darkgrey;
+  border-radius: 6px;
+}
+.ui_numberfield {
+  background-color: white;
+}
