@@ -1,13 +1,13 @@
 import React from "react";
 import { Table, Tr, Th, Thead, Tbody, Td, Tfoot } from "@chakra-ui/react";
 
-function CurrentSituation() {
+function AddCurrentState(props) {
   return (
     <Table variant="simple" className="analyse">
       <Thead>
         <Tr>
           <Th colspan="3" textAlign="center">
-            Current situation
+            Current state
           </Th>
         </Tr>
         <Tr>
@@ -18,27 +18,22 @@ function CurrentSituation() {
       <Tbody>
         <Tr>
           <Td>Revenue</Td>
-          <Td isNumeric>25.4</Td>
+          <Td isNumeric>{props.revenue}</Td>
         </Tr>
         <Tr>
           <Td>Total Costs</Td>
 
-          <Td isNumeric>30.48</Td>
+          <Td isNumeric>{props.totalCosts}</Td>
         </Tr>
         <Tr>
           <Td>Net Profit</Td>
 
-          <Td isNumeric>0.91444</Td>
+          <Td isNumeric>{props.netProfit}</Td>
         </Tr>
         <Tr>
-          <Td>EBIADTA </Td>
+          <Td>EBIDTA </Td>
 
-          <Td isNumeric>0.91444</Td>
-        </Tr>
-        <Tr>
-          <Td>Multiply</Td>
-
-          <Td isNumeric>0.91444</Td>
+          <Td isNumeric>{props.ebitda}</Td>
         </Tr>
       </Tbody>
       <Tfoot>
@@ -52,4 +47,4 @@ function CurrentSituation() {
   );
 }
 
-export default CurrentSituation;
+export default AddCurrentState;
