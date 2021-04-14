@@ -5,10 +5,9 @@ import AddCurrentState from "./AddCurrentState";
 import OptimizationInput from "./OptimisationInput";
 import BulletChart from "./charts/BulletChart";
 import AddStatImpact from "./AddStatImpact";
-import ChartCol from "./charts/Chart";
+
 import CandleStickChart from "./charts/CandleStickChart";
 
-const data = [];
 function InputFront() {
   const [volume, setVolume] = useState(0);
   const [price, setPrice] = useState(0);
@@ -216,23 +215,17 @@ function InputFront() {
       </GridItem>
 
       <GridItem rowSpan={2} colSpan={5} bg="#95d4e7">
+        <BulletChart
+          sales={salesToTarget}
+          price={priceToTarget}
+          costs={costsToTarget}
+        />
         <CandleStickChart
           volume={difNetProfitVolumeEuro}
           price={difNetProfitPriceEuro}
           costs={difNetProfitCostsEuro}
           total={optimizationTotalEuro}
           netProfit={netProfit}
-        />
-        <BulletChart
-          sales={salesToTarget}
-          price={priceToTarget}
-          costs={costsToTarget}
-        />
-        <ChartCol
-          volume={difNetProfitVolumeEuro}
-          price={difNetProfitPriceEuro}
-          costs={difNetProfitCostsEuro}
-          total={optimizationTotalEuro}
         />
       </GridItem>
     </Grid>
