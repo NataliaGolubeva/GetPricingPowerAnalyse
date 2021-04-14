@@ -1,22 +1,12 @@
-import React from 'react';
-import {
-  Table,
-  TableCaption,
-  Tr,
-  Th,
-  Thead,
-  Tbody,
-  Td,
-  Tfoot,
-  Heading,
-} from '@chakra-ui/react';
+import React from "react";
+import { Table, Tr, Th, Thead, Tbody, Td, Tfoot } from "@chakra-ui/react";
 
-function ImpactAnalyse() {
+function ImpactAnalyse(props) {
   return (
     <Table variant="simple" className="analyse">
       <Thead>
         <Tr>
-          <Th colspan="3" textAlign="center">
+          <Th colSpan="3" textAlign="center">
             Impact Analyse
           </Th>
         </Tr>
@@ -29,25 +19,25 @@ function ImpactAnalyse() {
       <Tbody>
         <Tr>
           <Td>Sales Target Increase</Td>
-          <Td isNumeric>XX</Td>
-          <Td isNumeric>XX</Td>
+          <Td isNumeric>{props.difNetProfitVolumeEuro} €</Td>
+          <Td isNumeric>{props.difNetProfitVolumePercent} %</Td>
         </Tr>
         <Tr>
           <Td>Average Price Increase</Td>
-          <Td isNumeric>XX</Td>
-          <Td isNumeric>XX</Td>
+          <Td isNumeric>{props.difNetProfitPriceEuro} €</Td>
+          <Td isNumeric>{props.difNetProfitPricePercent} %</Td>
         </Tr>
         <Tr>
           <Td>Variable costs Decrease</Td>
-          <Td isNumeric>XX</Td>
-          <Td isNumeric>XX</Td>
+          <Td isNumeric>{props.difNetProfitCostsEuro} €</Td>
+          <Td isNumeric>{props.difNetProfitCostsPercent} %</Td>
         </Tr>
       </Tbody>
       <Tfoot>
         <Tr>
           <Th>Total</Th>
-          <Th isNumeric>XX</Th>
-          <Th isNumeric>XX</Th>
+          <Th isNumeric>{props.optimizationTotalEuro} €</Th>
+          <Th isNumeric>{props.optimizationTotalPercent} %</Th>
         </Tr>
       </Tfoot>
     </Table>

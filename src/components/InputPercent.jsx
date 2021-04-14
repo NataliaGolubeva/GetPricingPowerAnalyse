@@ -7,7 +7,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
-function InputEuro(props) {
+function InputPercent(props) {
   const { className, type = "number", ...rest } = props;
   const classes = clsx("ui_numberfield", className);
 
@@ -24,11 +24,11 @@ function InputEuro(props) {
           pointerEvents="none"
           color="gray.400"
           fontSize="1.2em"
-          children="€"
+          children="%"
         />
       </NumberInput>
     </InputGroup>
   );
 }
 
-export default InputEuro;
+export default InputPercent;
