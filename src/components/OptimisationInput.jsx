@@ -4,7 +4,7 @@ import { VStack, Flex, Heading } from "@chakra-ui/react";
 
 function OptimizationInput(props) {
   return (
-    <VStack className="inputForm">
+    <VStack className="inputForm" m={5}>
       <Heading size="sm" my={3} textAlign="center">
         Optimisation in %
       </Heading>
@@ -12,8 +12,9 @@ function OptimizationInput(props) {
         <label htmlFor="salesInc">Sales target increase:</label>
 
         <InputPercent
+          min="0"
           className="salesInc"
-          value={props.salesIncrease}
+          value={props.onSalesInput()}
           onChange={props.onSalesIncrease}
           maxWidth="80%"
         />

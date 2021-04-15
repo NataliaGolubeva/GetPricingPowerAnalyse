@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactApexChart from "react-apexcharts";
 
 function CandleStickChart(props) {
@@ -46,7 +46,7 @@ function CandleStickChart(props) {
           },
           title: {
             text: "Optimization",
-            align: "left",
+            align: "center",
           },
           xaxis: {
             type: "number",
@@ -67,7 +67,7 @@ function CandleStickChart(props) {
             options={this.state.options}
             series={this.state.series}
             type="candlestick"
-            height={350}
+            height={250}
           />
         </div>
       );

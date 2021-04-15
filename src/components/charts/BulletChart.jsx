@@ -1,6 +1,6 @@
 import React from "react";
 import { ChartBullet } from "@patternfly/react-charts";
-
+import { Heading } from "@chakra-ui/react";
 function BulletChart(props) {
   const { sales, price, costs } = props;
   class BulletCharts extends React.Component {
@@ -33,6 +33,15 @@ function BulletChart(props) {
       const { width } = this.state;
       return (
         <div ref={this.containerRef} style={{ height: "180px" }}>
+          <Heading
+            mt={7}
+            mb={3}
+            align="center"
+            size="sm"
+            className="smallHeader"
+          >
+            Optimization impact on target profit in %
+          </Heading>
           <ChartBullet
             ariaDesc="Optimization"
             ariaTitle="Optimization for target profit"
@@ -48,7 +57,7 @@ function BulletChart(props) {
               bottom: 50,
               left: 0,
               right: 70,
-              top: 100, // Adjusted to accommodate labels
+              top: 5, // Adjusted to accommodate labels
             }}
             primarySegmentedMeasureData={[
               { name: "Sales increase", y: sales },
@@ -64,8 +73,6 @@ function BulletChart(props) {
               { name: "Target", y: 100 },
               { name: "Target exceed", y: 120 },
             ]}
-            subTitle="Measure details"
-            title="Optimization for target profit in %"
             titlePosition="top-left"
             width={width}
           />

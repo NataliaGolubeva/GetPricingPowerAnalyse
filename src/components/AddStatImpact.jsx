@@ -7,19 +7,20 @@ import {
   StatHelpText,
   StatArrow,
   Heading,
+  Progress,
 } from "@chakra-ui/react";
 
 function AddStatImpact(props) {
   if (!props.salesIncrease && !props.priceIncrease && !props.costsDecrease) {
     return (
-      <Heading mb={3} align="center" size="lg">
-        Optimization loading ...
-      </Heading>
+      <>
+        <Heading mb={3} align="center" size="sm"></Heading>
+      </>
     );
   }
   return (
-    <>
-      <Heading mb={3} align="center" size="lg">
+    <div className="statImpact">
+      <Heading align="center" my={2} size="sm" className="smallHeader">
         Optimization impact
       </Heading>
 
@@ -58,7 +59,7 @@ function AddStatImpact(props) {
           </StatHelpText>
         </Stat>
       </StatGroup>
-      <StatGroup align="center" mt={7}>
+      <StatGroup align="center" mt={4}>
         <Stat className="currentPrice">
           <StatLabel>Current price</StatLabel>
           <StatNumber>{props.price} €</StatNumber>
@@ -74,7 +75,7 @@ function AddStatImpact(props) {
           </StatHelpText>
         </Stat>
       </StatGroup>
-    </>
+    </div>
   );
 }
 
