@@ -146,14 +146,12 @@ function MainGrid(props) {
           </GridItem>
           <GridItem rowSpan={1} colSpan={5} bg="brand.300">
             <BulletChart
-              sales={parseFloat(
-                (this.VolumeProfitDif() / targetProfit) * 100
-              ).toFixed(2)}
-              price={parseFloat(
-                (this.PriceProfitDif() / targetProfit) * 100
-              ).toFixed(2)}
-              costs={parseFloat(
-                (this.CostsProfitDif() / targetProfit) * 100
+              total={(
+                ((this.VolumeProfitDif() +
+                  this.PriceProfitDif() +
+                  this.CostsProfitDif()) /
+                  targetProfit) *
+                100
               ).toFixed(2)}
             />
           </GridItem>

@@ -45,11 +45,12 @@ function BasicWaterfall(props) {
 
             yaxis: {
               type: "linear",
-              ticktext: [netProfit, "Very long label", "3", "label"],
+              ticktext: [netProfit, "", "", ""],
             },
-            autosize: false,
+            autosize: true,
             showlegend: false,
             height: 300,
+
             margin: {
               b: 40,
               t: 40,
@@ -58,6 +59,10 @@ function BasicWaterfall(props) {
             padding: {
               t: 10,
             },
+          }}
+          useResizeHandler={true}
+          style={{
+            width: "100%",
           }}
         />
       );

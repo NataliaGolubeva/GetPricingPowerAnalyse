@@ -2,7 +2,7 @@ import React from "react";
 import { ChartBullet } from "@patternfly/react-charts";
 import { Heading } from "@chakra-ui/react";
 function BulletChart(props) {
-  const { sales, price, costs } = props;
+  const { total } = props;
   class BulletCharts extends React.Component {
     constructor(props) {
       super(props);
@@ -59,16 +59,8 @@ function BulletChart(props) {
               right: 70,
               top: 5, // Adjusted to accommodate labels
             }}
-            primarySegmentedMeasureData={[
-              { name: "Sales increase", y: sales },
-              { name: "Price increase", y: sales + price },
-              { name: "Costs decrease", y: sales + price + costs },
-            ]}
-            primarySegmentedMeasureLegendData={[
-              { name: "Sales increase" },
-              { name: "Price increase" },
-              { name: "Costs decrease" },
-            ]}
+            primarySegmentedMeasureData={[{ name: "Total in %", y: total }]}
+            primarySegmentedMeasureLegendData={[{ name: "Total" }]}
             qualitativeRangeData={[
               { name: "Target", y: 100 },
               { name: "Target exceed", y: 120 },

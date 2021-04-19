@@ -3,12 +3,11 @@ import "@fontsource/open-sans/700.css";
 import React from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
-import Header from "./components/Header";
 import InputFront from "./components/InputFront";
 const theme = extendTheme({
   fonts: {
     heading: "Open Sans",
-    body: "Raleway",
+    body: "Mukta",
   },
   colors: {
     brand: {
