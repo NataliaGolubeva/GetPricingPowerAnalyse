@@ -4,9 +4,8 @@ import AddInputForm from "./AddInputForm";
 import AddCurrentState from "./AddCurrentState";
 import BulletChart from "./charts/BulletChart";
 import AddStatImpact from "./AddStatImpact";
-import AddSlider from "./slider/AddSlider";
-
-import CandleStickChart from "./charts/CandleStickChart";
+import BasicWaterfall from "./charts/BasicWaterfall";
+import MainGrid from "./Grid/Grid";
 
 function InputFront() {
   const [volume, setVolume] = useState(0);
@@ -45,16 +44,7 @@ function InputFront() {
     newRevenueVolumeInc - newTotalCostsVolumeInc
   );
   const difNetProfitVolumeEuro = newNetProfitVolumeInc - netProfit;
-  function handleVolumePercent() {
-    if (!salesIncrease) {
-      return 0;
-    }
-    const difNetProfitVolumePercent = (
-      (difNetProfitVolumeEuro / netProfit) *
-      100
-    ).toFixed(2);
-    return difNetProfitVolumePercent;
-  }
+
   const difNetProfitVolumePercent = (
     (difNetProfitVolumeEuro / netProfit) *
     100
@@ -118,9 +108,13 @@ function InputFront() {
     setTargetProfit(parseInt(e.target.value, 10));
   }
   // Optimization data
-  function handleSalesIncreaseChange(e) {
+  //function handleSalesIncreaseChange(e) {
+  //  setSalesIncrease( parseInt(e.target.value, 10));
+  //}
+  const handleSalesIncreaseChange = (e) => {
     setSalesIncrease(parseInt(e.target.value, 10));
-  }
+  };
+
   function handlePriceIncreaseChange(e) {
     setPriceIncrease(parseInt(e.target.value, 10));
   }
@@ -129,17 +123,13 @@ function InputFront() {
   }
   // Optimization input
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-  }
-
   return (
     <Grid
-      templateRows="repeat(3, 1fr)"
+      templateRows="repeat(1, 1fr)"
       templateColumns="repeat(7, 1fr)"
       gap={0}
     >
-      <GridItem className="input_class" rowSpan={3} colSpan={2} bg="brand.100">
+      <GridItem className="input_class" rowSpan={1} colSpan={2} bg="brand.100">
         <AddInputForm
           volume={volume}
           price={price}
@@ -154,7 +144,6 @@ function InputFront() {
           onCogsChange={handleCogsChange}
           onTaxesChange={handleTaxesChange}
           onTargetProfitChange={handleTargetProfitChange}
-          onFormSubmit={handleFormSubmit}
         />
         <AddCurrentState
           revenue={revenue}
@@ -163,47 +152,15 @@ function InputFront() {
           ebitda={ebitda}
         />
       </GridItem>
-      <GridItem rowSpan={1} colSpan={2} bg="brand.200">
-        <AddSlider
-          salesIncrease={salesIncrease}
-          priceIncrease={priceIncrease}
-          costsDecrease={costsDecrease}
-          onSalesIncrease={handleSalesIncreaseChange}
-          onPriceIncrease={handlePriceIncreaseChange}
-          onCostsDecrease={handleCostsDecreaseChange}
-        />
-      </GridItem>
-      <GridItem rowSpan={1} colSpan={3} bg="brand.200">
-        <AddStatImpact
-          difNetProfitVolumeEuro={difNetProfitVolumeEuro}
-          difNetProfitVolumePercent={difNetProfitVolumePercent}
-          difNetProfitPriceEuro={difNetProfitPriceEuro}
-          difNetProfitPricePercent={difNetProfitPricePercent}
-          difNetProfitCostsEuro={difNetProfitCostsEuro}
-          difNetProfitCostsPercent={difNetProfitCostsPercent}
-          optimizationTotalEuro={optimizationTotalEuro}
-          optimizationTotalPercent={optimizationTotalPercent}
+      <GridItem rowSpan={1} colSpan={5} bg="brand.200">
+        <MainGrid
+          volume={volume}
           price={price}
-          priceIncrease={priceIncrease}
-          newPrice={newPrice}
-          salesIncrease={salesIncrease}
-          costsDecrease={costsDecrease}
-        />
-      </GridItem>
-      <GridItem rowSpan={1} colSpan={5} bg="brand.400">
-        <CandleStickChart
-          volume={difNetProfitVolumeEuro}
-          price={difNetProfitPriceEuro}
-          costs={difNetProfitCostsEuro}
-          total={optimizationTotalEuro}
+          costs={fixedCosts}
+          cogs={cogs}
+          taxes={taxes}
           netProfit={netProfit}
-        />
-      </GridItem>
-      <GridItem rowSpan={1} colSpan={5} bg="brand.300">
-        <BulletChart
-          sales={salesToTarget}
-          price={priceToTarget}
-          costs={costsToTarget}
+          targetProfit={targetProfit}
         />
       </GridItem>
     </Grid>

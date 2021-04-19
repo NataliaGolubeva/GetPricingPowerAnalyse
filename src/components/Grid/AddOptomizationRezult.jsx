@@ -8,9 +8,23 @@ import {
   StatArrow,
   Heading,
 } from "@chakra-ui/react";
-
-function AddStatImpact(props) {
-  if (!props.salesIncrease && !props.priceIncrease && !props.costsDecrease) {
+function AddOptomizationRezult(props) {
+  const {
+    salesValue,
+    priceValue,
+    costsValue,
+    price,
+    newPrice,
+    volumeDif,
+    volumeDifPercent,
+    priceDif,
+    priceDifPercent,
+    costsDif,
+    costsDifPercent,
+    sumEuro,
+    sumPercent,
+  } = props;
+  if (!salesValue && !priceValue && !costsValue) {
     return (
       <>
         <Heading mb={3} align="center" size="sm"></Heading>
@@ -26,51 +40,51 @@ function AddStatImpact(props) {
       <StatGroup align="center">
         <Stat>
           <StatLabel>Volume sold</StatLabel>
-          <StatNumber>{props.difNetProfitVolumeEuro} €</StatNumber>
+          <StatNumber>{volumeDif} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
-            {props.difNetProfitVolumePercent} %
+            {volumeDifPercent} %
           </StatHelpText>
         </Stat>
 
         <Stat>
           <StatLabel>Average Price</StatLabel>
-          <StatNumber>{props.difNetProfitPriceEuro} €</StatNumber>
+          <StatNumber>{priceDif} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
-            {props.difNetProfitPricePercent} %
+            {priceDifPercent} %
           </StatHelpText>
         </Stat>
         <Stat>
           <StatLabel>Costs Decrease</StatLabel>
-          <StatNumber>{props.difNetProfitCostsEuro} €</StatNumber>
+          <StatNumber>{costsDif} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
-            {props.difNetProfitCostsPercent} %
+            {costsDifPercent} %
           </StatHelpText>
         </Stat>
         <Stat>
           <StatLabel>Total</StatLabel>
-          <StatNumber>{props.optimizationTotalEuro} €</StatNumber>
+          <StatNumber>{sumEuro} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
-            {props.optimizationTotalPercent} %
+            {sumPercent} %
           </StatHelpText>
         </Stat>
       </StatGroup>
       <StatGroup align="center" mt={4}>
         <Stat className="currentPrice">
           <StatLabel>Current price</StatLabel>
-          <StatNumber>{props.price} €</StatNumber>
+          <StatNumber>{price} €</StatNumber>
           <StatHelpText>Average</StatHelpText>
         </Stat>
 
         <Stat className="newPrice">
           <StatLabel>New Price</StatLabel>
-          <StatNumber>{props.newPrice} €</StatNumber>
+          <StatNumber>{newPrice} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
-            {props.priceIncrease} %
+            {priceValue} %
           </StatHelpText>
         </Stat>
       </StatGroup>
@@ -78,4 +92,4 @@ function AddStatImpact(props) {
   );
 }
 
-export default AddStatImpact;
+export default AddOptomizationRezult;
