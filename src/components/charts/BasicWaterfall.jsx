@@ -49,15 +49,12 @@ function BasicWaterfall(props) {
             },
             autosize: true,
             showlegend: false,
-            height: 300,
+            height: 250,
 
             margin: {
               b: 40,
               t: 40,
               pad: 5,
-            },
-            padding: {
-              t: 10,
             },
           }}
           useResizeHandler={true}

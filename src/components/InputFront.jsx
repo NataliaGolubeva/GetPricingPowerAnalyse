@@ -123,7 +123,12 @@ function InputFront() {
       templateColumns="repeat(7, 1fr)"
       gap={0}
     >
-      <GridItem className="input_class" rowSpan={1} colSpan={2} bg="brand.100">
+      <GridItem
+        className="input_class"
+        rowSpan={1}
+        colSpan={[7, 3, 3, 2]}
+        bg="brand.100"
+      >
         <AddInputForm
           volume={volume}
           price={price}
@@ -146,7 +151,7 @@ function InputFront() {
           ebitda={ebitda}
         />
       </GridItem>
-      <GridItem rowSpan={1} colSpan={5}>
+      <GridItem rowSpan={1} colSpan={[7, 4, 4, 5]}>
         <MainGrid
           volume={volume}
           price={price}

@@ -91,11 +91,11 @@ function MainGrid(props) {
     render() {
       return (
         <Grid
-          templateRows="repeat(2fr 1fr 2fr)"
+          templateRows="repeat(2fr 0.7fr 2.3fr)"
           templateColumns="repeat(5, 1fr)"
           gap={0}
         >
-          <GridItem rowSpan={1} colSpan={2}>
+          <GridItem rowSpan={1} colSpan={[5, 5, 5, 2]}>
             <AddSliderOptimization
               salesValue={this.state.salesValue}
               handleSalesOnChange={this.handleSalesOnChange}
@@ -105,7 +105,7 @@ function MainGrid(props) {
               handleCostsOnChange={this.handleCostsOnChange}
             />
           </GridItem>
-          <GridItem rowSpan={1} colSpan={3}>
+          <GridItem rowSpan={1} colSpan={[5, 5, 5, 3]}>
             <AddOptomizationRezult
               salesValue={this.state.salesValue}
               priceValue={this.state.priceValue}
@@ -143,7 +143,7 @@ function MainGrid(props) {
               ).toFixed(2)}
             />
           </GridItem>
-          <GridItem rowSpan={1} colSpan={5}>
+          <GridItem rowSpan={1} colSpan={5} pt={5}>
             <BasicWaterfall
               volume={this.VolumeProfitDif()}
               price={this.PriceProfitDif()}
