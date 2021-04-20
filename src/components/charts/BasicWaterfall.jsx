@@ -10,7 +10,7 @@ function BasicWaterfall(props) {
             {
               name: "data",
               type: "waterfall",
-              increasing: { marker: { color: "Teal" } },
+              increasing: { marker: { color: "#8ab2ee" } },
               totals: {
                 marker: {
                   color: "#24245c",

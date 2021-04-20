@@ -6,7 +6,7 @@ import InputPercent from "./InputPercent";
 function AddInputForm(props) {
   return (
     <VStack className="inputForm" mx={5} my={4}>
-      <Heading size="sm" my={3} textAlign="center">
+      <Heading size="sm" my={3} textAlign="center" className="smallHeader">
         Your actual company data
       </Heading>
       <Flex>

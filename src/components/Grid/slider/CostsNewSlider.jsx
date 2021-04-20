@@ -5,7 +5,7 @@ class CostsNewSlider extends Component {
   render() {
     return (
       <>
-        <div className="legend">Costs decrease</div>
+        <div className="sliderLegend">Costs decrease</div>
         <Flex>
           <input
             type="range"

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   StatGroup,
   Stat,
@@ -7,6 +8,7 @@ import {
   StatHelpText,
   StatArrow,
   Heading,
+  Image,
 } from "@chakra-ui/react";
 function AddOptomizationRezult(props) {
   const {
@@ -26,9 +28,15 @@ function AddOptomizationRezult(props) {
   } = props;
   if (!salesValue && !priceValue && !costsValue) {
     return (
-      <>
-        <Heading mb={3} align="center" size="sm"></Heading>
-      </>
+      <div className="statImpact">
+        <Image
+          src="./images/project-costs.png"
+          alt="Calculating costs"
+          boxSize="230px"
+          objectFit="cover"
+          className="image"
+        />
+      </div>
     );
   }
   return (

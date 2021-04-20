@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import AddInputForm from "./AddInputForm";
 import AddCurrentState from "./AddCurrentState";
-import BulletChart from "./charts/BulletChart";
-import AddStatImpact from "./AddStatImpact";
-import BasicWaterfall from "./charts/BasicWaterfall";
+import AddCurrentStateList from "./AddCurrentStateList";
 import MainGrid from "./Grid/Grid";
 
 function InputFront() {
@@ -83,11 +81,7 @@ function InputFront() {
       difNetProfitVolumeEuro / netProfit) *
     100
   ).toFixed(2);
-  // target value
 
-  const salesToTarget = (difNetProfitVolumeEuro / targetProfit) * 100;
-  const priceToTarget = (difNetProfitPriceEuro / targetProfit) * 100;
-  const costsToTarget = (difNetProfitCostsEuro / targetProfit) * 100;
   // ACTUAL DATA
   function handleVolumeChange(e) {
     setVolume(parseInt(e.target.value, 10));
@@ -145,14 +139,14 @@ function InputFront() {
           onTaxesChange={handleTaxesChange}
           onTargetProfitChange={handleTargetProfitChange}
         />
-        <AddCurrentState
+        <AddCurrentStateList
           revenue={revenue}
           totalCosts={totalCosts}
           netProfit={netProfit}
           ebitda={ebitda}
         />
       </GridItem>
-      <GridItem rowSpan={1} colSpan={5} bg="brand.200">
+      <GridItem rowSpan={1} colSpan={5}>
         <MainGrid
           volume={volume}
           price={price}

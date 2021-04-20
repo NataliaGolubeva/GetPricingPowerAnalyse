@@ -7,10 +7,29 @@ body {
   color: white;
   padding: 7px;
   border-radius: 3%;
+  box-shadow: 0px 0px 6px 2px #6b6977;
+}
+.currentState {
+  margin: 1.2em;
+  margin-top: 2em;
+}
+.currentList {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0.5em;
+  margin-bottom: 0.5em;
+}
+.currentResult {
+  padding: 0.4em;
+}
+.currentNetProfit {
+  border-radius: 3%;
+  box-shadow: 0px 0px 6px 2px #6b6977;
+  padding: 0.4em;
 }
 .wrapper {
-  background-color: white;
   border-radius: 3%;
+  box-shadow: 0px 0px 3px 1px #477dcf;
   padding: 5px;
   margin: 2vh;
   padding-bottom: 2rem;
@@ -25,9 +44,9 @@ body {
   color: white;
 }
 .statImpact {
-  background-color: white;
-  padding: 7px;
   border-radius: 3%;
+  box-shadow: 0px 0px 3px 1px #477dcf;
+  padding: 7px;
   margin: 2vh;
   color: black;
 }
@@ -54,7 +73,7 @@ label {
 }
 .newPrice {
   margin: 5px;
-  background-color: #95d4e7;
+  background-color: #8ab2ee;
   border: 1px rgb(149, 212, 231) solid;
   border-radius: 25px;
   color: white;
@@ -65,8 +84,8 @@ label {
   width: 80%;
   height: 7px;
   outline: none;
-  background: #1f527b;
-  opacity: 0.8;
+  background: #5492ed;
+  opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   border-radius: 12px;
@@ -83,7 +102,7 @@ label {
   background: white;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid #1f527b;
+  border: 2px solid #5492ed;
 }
 .slider::-moz-range-thumb {
   width: 20px;
@@ -100,21 +119,29 @@ label {
   text-align: center;
   height: 25px;
   border-radius: 10%;
-
-  background-color: #1f527b;
+  background-color: #5492ed;
 }
-.legend {
+.sliderLegend {
   margin-top: 10px;
+  font-weight: 600;
 }
 .statImpact {
   color: black;
 }
 .smallHeader {
   font-weight: bald;
+  padding-bottom: 8px;
+  text-transform: uppercase;
 }
 #root {
   height: 100vh;
 }
 .sliderValue {
   color: white;
+}
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.7em;
 }

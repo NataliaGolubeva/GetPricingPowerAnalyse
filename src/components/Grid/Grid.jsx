@@ -91,11 +91,11 @@ function MainGrid(props) {
     render() {
       return (
         <Grid
-          templateRows="repeat(3, 1fr)"
+          templateRows="repeat(2fr 1fr 2fr)"
           templateColumns="repeat(5, 1fr)"
           gap={0}
         >
-          <GridItem rowSpan={1} colSpan={2} bg="brand.200">
+          <GridItem rowSpan={1} colSpan={2}>
             <AddSliderOptimization
               salesValue={this.state.salesValue}
               handleSalesOnChange={this.handleSalesOnChange}
@@ -105,7 +105,7 @@ function MainGrid(props) {
               handleCostsOnChange={this.handleCostsOnChange}
             />
           </GridItem>
-          <GridItem rowSpan={1} colSpan={3} bg="brand.200">
+          <GridItem rowSpan={1} colSpan={3}>
             <AddOptomizationRezult
               salesValue={this.state.salesValue}
               priceValue={this.state.priceValue}
@@ -130,6 +130,19 @@ function MainGrid(props) {
               ).toFixed(2)}
             />
           </GridItem>
+
+          <GridItem rowSpan={1} colSpan={5} bg="brand.300">
+            <BulletChart
+              targetProfit={targetProfit}
+              total={(
+                ((this.VolumeProfitDif() +
+                  this.PriceProfitDif() +
+                  this.CostsProfitDif()) /
+                  targetProfit) *
+                100
+              ).toFixed(2)}
+            />
+          </GridItem>
           <GridItem rowSpan={1} colSpan={5}>
             <BasicWaterfall
               volume={this.VolumeProfitDif()}
@@ -142,17 +155,6 @@ function MainGrid(props) {
                   netProfit
               )}
               netProfit={netProfit}
-            />
-          </GridItem>
-          <GridItem rowSpan={1} colSpan={5} bg="brand.300">
-            <BulletChart
-              total={(
-                ((this.VolumeProfitDif() +
-                  this.PriceProfitDif() +
-                  this.CostsProfitDif()) /
-                  targetProfit) *
-                100
-              ).toFixed(2)}
             />
           </GridItem>
         </Grid>
