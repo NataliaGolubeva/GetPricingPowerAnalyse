@@ -7,7 +7,15 @@ import BasicWaterfall from "../charts/BasicWaterfall";
 import BulletChart from "../charts/BulletChart";
 
 function MainGrid(props) {
-  const { volume, price, costs, cogs, netProfit, targetProfit } = props;
+  const {
+    volume,
+    price,
+    costs,
+    cogs,
+    netProfit,
+    targetProfit,
+    varCostsEuro,
+  } = props;
   class App extends Component {
     state = {
       salesValue: 0,

@@ -1,17 +1,20 @@
 import React from "react";
 import { VStack, Flex, Heading } from "@chakra-ui/react";
-import InputEuro from "./Input";
-import InputPercent from "./InputPercent";
+import InputEuro from "./input/Input";
+import InputPercent from "./input/InputPercent";
+import SimpleInput from "./input/simpleInput";
 
 function AddInputForm(props) {
+  const { revenue, totalCosts, netProfit, ebitda } = props;
   return (
     <VStack className="inputForm" mx={5} my={4}>
       <Heading size="sm" my={3} textAlign="center" className="smallHeader">
         Your actual company data
       </Heading>
+
       <Flex>
         <label htmlFor="volume_sold">Volume of product sold:</label>
-        <InputEuro
+        <SimpleInput
           className="volume_sold"
           value={props.volume}
           onChange={props.onVolumeChange}
@@ -27,6 +30,7 @@ function AddInputForm(props) {
           maxWidth="80%"
         />
       </Flex>
+
       <Flex>
         <label htmlFor="fixed_costs">Total fixed costs:</label>
         <InputEuro
@@ -63,8 +67,6 @@ function AddInputForm(props) {
           maxWidth="80%"
         />
       </Flex>
-
-      <div className="validation-message">{props.validation}</div>
     </VStack>
   );
 }

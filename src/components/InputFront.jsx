@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import AddInputForm from "./AddInputForm";
-import AddCurrentState from "./AddCurrentState";
 import AddCurrentStateList from "./AddCurrentStateList";
 import MainGrid from "./Grid/Grid";
 
@@ -11,13 +10,7 @@ function InputFront() {
   const [fixedCosts, setFixedCosts] = useState(0);
   const [cogs, setCogs] = useState(0);
   const [taxes, setTaxes] = useState(0);
-
   const [targetProfit, setTargetProfit] = useState(0);
-  const [salesIncrease, setSalesIncrease] = useState(0);
-  const [priceIncrease, setPriceIncrease] = useState(0);
-  const [costsDecrease, setCostsDecrease] = useState(0);
-
-  const [validation, setValidation] = useState("");
 
   // calculations of the current state
   const revenue = volume * price;
@@ -26,61 +19,13 @@ function InputFront() {
   const ebitda = Math.round(
     netProfit + fixedCosts * 0.35 + netProfit * (taxes / 100)
   );
+  const varCostsEuro = Math.round((cogs / 100) * revenue);
   // total costs = variable_costs + fixed_costs
   // variable costs = cogs in % * revenue
   // EBITDA = netProfit + amortization + deprecation + interest + netProfit * taxes%
   // amortization = fixed_costs * 0,1
   // deprecation = fixed_costs * 0,2
   // interest = fixed_costs * 0,05
-
-  // calculations of optimization impact of SALES increase
-  const newRevenueVolumeInc = ((volume * salesIncrease) / 100 + volume) * price;
-  const newTotalCostsVolumeInc = Math.round(
-    (cogs / 100) * newRevenueVolumeInc + fixedCosts
-  );
-  const newNetProfitVolumeInc = Math.round(
-    newRevenueVolumeInc - newTotalCostsVolumeInc
-  );
-  const difNetProfitVolumeEuro = newNetProfitVolumeInc - netProfit;
-
-  const difNetProfitVolumePercent = (
-    (difNetProfitVolumeEuro / netProfit) *
-    100
-  ).toFixed(2);
-
-  // calculations of optimization impact of PRICE increase
-  const newRevenuePriceInc = volume * (price + (price * priceIncrease) / 100);
-  const newTotalCostsPriceInc = Math.round(
-    (cogs / 100) * newRevenuePriceInc + fixedCosts
-  );
-  const newNetProfitPriceInc = Math.round(
-    newRevenuePriceInc - newTotalCostsPriceInc
-  );
-  const difNetProfitPriceEuro = newNetProfitPriceInc - netProfit;
-  const difNetProfitPricePercent = (
-    (difNetProfitPriceEuro / netProfit) *
-    100
-  ).toFixed(2);
-  const newPrice = (price + (price * priceIncrease) / 100).toFixed(2);
-  // calculations of optimization impact of COSTS decrease
-  const newTotalCostsDec = Math.round(
-    (cogs / 100 - costsDecrease / 100) * revenue + fixedCosts
-  );
-  const newNetProfitCostsDec = Math.round(revenue - newTotalCostsDec);
-  const difNetProfitCostsEuro = newNetProfitCostsDec - netProfit;
-  const difNetProfitCostsPercent = (
-    (difNetProfitCostsEuro / netProfit) *
-    100
-  ).toFixed(2);
-  // total
-  const optimizationTotalEuro =
-    difNetProfitVolumeEuro + difNetProfitPriceEuro + difNetProfitCostsEuro;
-  const optimizationTotalPercent = (
-    (difNetProfitPriceEuro / netProfit +
-      difNetProfitCostsEuro / netProfit +
-      difNetProfitVolumeEuro / netProfit) *
-    100
-  ).toFixed(2);
 
   // ACTUAL DATA
   function handleVolumeChange(e) {
@@ -101,21 +46,6 @@ function InputFront() {
   function handleTargetProfitChange(e) {
     setTargetProfit(parseInt(e.target.value, 10));
   }
-  // Optimization data
-  //function handleSalesIncreaseChange(e) {
-  //  setSalesIncrease( parseInt(e.target.value, 10));
-  //}
-  const handleSalesIncreaseChange = (e) => {
-    setSalesIncrease(parseInt(e.target.value, 10));
-  };
-
-  function handlePriceIncreaseChange(e) {
-    setPriceIncrease(parseInt(e.target.value, 10));
-  }
-  function handleCostsDecreaseChange(e) {
-    setCostsDecrease(parseInt(e.target.value, 10));
-  }
-  // Optimization input
 
   return (
     <Grid
@@ -136,7 +66,7 @@ function InputFront() {
           cogs={cogs}
           taxes={taxes}
           targetProfit={targetProfit}
-          validation={validation}
+          revenue={revenue}
           onVolumeChange={handleVolumeChange}
           onPriceChange={handlePriceChange}
           onCostsChange={handleFixedCostsChange}
@@ -160,6 +90,7 @@ function InputFront() {
           taxes={taxes}
           netProfit={netProfit}
           targetProfit={targetProfit}
+          varCostsEuro={varCostsEuro}
         />
       </GridItem>
     </Grid>
