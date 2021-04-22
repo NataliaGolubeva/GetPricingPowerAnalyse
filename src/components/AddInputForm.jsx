@@ -3,6 +3,7 @@ import { VStack, Flex, Heading } from "@chakra-ui/react";
 import InputEuro from "./input/Input";
 import InputPercent from "./input/InputPercent";
 import SimpleInput from "./input/simpleInput";
+import FloatInput from "./input/FloatInput";
 
 function AddInputForm(props) {
   const { revenue, totalCosts, netProfit, ebitda } = props;
@@ -23,7 +24,7 @@ function AddInputForm(props) {
       </Flex>
       <Flex>
         <label htmlFor="average_price">Average price per product:</label>
-        <InputEuro
+        <FloatInput
           className="average_price"
           value={props.price}
           onChange={props.onPriceChange}

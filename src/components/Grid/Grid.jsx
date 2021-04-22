@@ -72,7 +72,9 @@ function MainGrid(props) {
     CostsProfitDif = () => {
       const revenue = price * volume;
       const totalCosts =
-        ((cogs - parseInt(this.state.costsValue)) / 100) * revenue + costs;
+        (cogs / 100) * revenue -
+        (parseInt(this.state.costsValue) / 100) * (cogs / 100) * revenue +
+        costs;
       const netPr = revenue - totalCosts;
       const dif = Math.round(netPr - netProfit);
       return parseInt(dif);
@@ -81,7 +83,36 @@ function MainGrid(props) {
     CostsProfitDifPercent = () => {
       const revenue = price * volume;
       const totalCosts =
-        ((cogs - parseInt(this.state.costsValue)) / 100) * revenue + costs;
+        (cogs / 100) * revenue -
+        (parseInt(this.state.costsValue) / 100) * (cogs / 100) * revenue +
+        costs;
+      const netPr = revenue - totalCosts;
+      const dif = Math.round(netPr - netProfit);
+      const difPercent = ((dif / netProfit) * 100).toFixed(2);
+      return difPercent;
+    };
+    // calculations of optimization TOTAL impact
+    TotalProfitDif = () => {
+      const revenue =
+        ((volume * parseInt(this.state.salesValue)) / 100 + volume) *
+        ((price * parseInt(this.state.priceValue)) / 100 + price);
+      const totalCosts =
+        (cogs / 100) * revenue -
+        (parseInt(this.state.costsValue) / 100) * (cogs / 100) * revenue +
+        costs;
+      const netPr = revenue - totalCosts;
+      const dif = Math.round(netPr - netProfit);
+      return parseInt(dif);
+    };
+
+    TotalProfitDifPercent = () => {
+      const revenue =
+        ((volume * parseInt(this.state.salesValue)) / 100 + volume) *
+        ((price * parseInt(this.state.priceValue)) / 100 + price);
+      const totalCosts =
+        varCostsEuro -
+        (parseInt(this.state.costsValue) / 100) * varCostsEuro +
+        costs;
       const netPr = revenue - totalCosts;
       const dif = Math.round(netPr - netProfit);
       const difPercent = ((dif / netProfit) * 100).toFixed(2);
@@ -126,27 +157,18 @@ function MainGrid(props) {
               priceDifPercent={this.PriceProfitDifPercent()}
               costsDif={this.CostsProfitDif()}
               costsDifPercent={this.CostsProfitDifPercent()}
-              sumEuro={Math.round(
-                this.VolumeProfitDif() +
-                  this.PriceProfitDif() +
-                  this.CostsProfitDif()
-              )}
-              sumPercent={(
-                parseFloat(this.VolumeProfitDifPercent()) +
-                parseFloat(this.PriceProfitDifPercent()) +
-                parseFloat(this.CostsProfitDifPercent())
-              ).toFixed(2)}
+              sumEuro={this.TotalProfitDif()}
+              sumPercent={this.TotalProfitDifPercent()}
             />
           </GridItem>
 
           <GridItem rowSpan={1} colSpan={5} bg="brand.300">
             <BulletChart
-              targetProfit={targetProfit}
               total={(
                 ((this.VolumeProfitDif() +
                   this.PriceProfitDif() +
                   this.CostsProfitDif()) /
-                  targetProfit) *
+                  (targetProfit - netProfit)) *
                 100
               ).toFixed(2)}
             />

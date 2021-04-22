@@ -1,9 +1,8 @@
 import React from "react";
 import { ChartBullet } from "@patternfly/react-charts";
-import { Heading } from "@chakra-ui/react";
 import ChartMessage from "./ChartMessage";
 function BulletChart(props) {
-  const { total, targetProfit } = props;
+  const { total } = props;
   class BulletCharts extends React.Component {
     constructor(props) {
       super(props);

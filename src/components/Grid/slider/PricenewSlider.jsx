@@ -10,13 +10,13 @@ class PriceNewSlider extends Component {
           <input
             type="range"
             min={0}
-            max={300}
+            max={50}
             value={this.props.priceValue}
             className="slider"
             onChange={this.props.handlePriceOnChange}
           />
           <div className="valueBox">
-            <p className="sliderValue">{this.props.priceValue}</p>
+            <p className="sliderValue">{this.props.priceValue} %</p>
           </div>
         </Flex>
       </>

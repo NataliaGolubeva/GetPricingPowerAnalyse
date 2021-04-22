@@ -13,7 +13,8 @@ function InputFront() {
   const [targetProfit, setTargetProfit] = useState(0);
 
   // calculations of the current state
-  const revenue = volume * price;
+  const revenue = volume * parseFloat(price);
+  const variableCosts = Math.round((cogs / 100) * revenue);
   const totalCosts = Math.round((cogs / 100) * revenue + fixedCosts);
   const netProfit = Math.round(revenue - totalCosts);
   const ebitda = Math.round(
@@ -32,7 +33,7 @@ function InputFront() {
     setVolume(parseInt(e.target.value, 10));
   }
   function handlePriceChange(e) {
-    setPrice(parseInt(e.target.value, 10));
+    setPrice(parseFloat(e.target.value, 10));
   }
   function handleFixedCostsChange(e) {
     setFixedCosts(parseInt(e.target.value, 10));
@@ -46,7 +47,9 @@ function InputFront() {
   function handleTargetProfitChange(e) {
     setTargetProfit(parseInt(e.target.value, 10));
   }
-
+  function handleFormSubmit(event) {
+    event.preventDefault();
+  }
   return (
     <Grid
       templateRows="repeat(1, 1fr)"
@@ -67,6 +70,7 @@ function InputFront() {
           taxes={taxes}
           targetProfit={targetProfit}
           revenue={revenue}
+          onFormSubmit={handleFormSubmit}
           onVolumeChange={handleVolumeChange}
           onPriceChange={handlePriceChange}
           onCostsChange={handleFixedCostsChange}
@@ -79,6 +83,7 @@ function InputFront() {
           totalCosts={totalCosts}
           netProfit={netProfit}
           ebitda={ebitda}
+          variableCosts={variableCosts}
         />
       </GridItem>
       <GridItem rowSpan={1} colSpan={[7, 4, 4, 5]}>

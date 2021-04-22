@@ -49,7 +49,7 @@ function BasicWaterfall(props) {
             },
             autosize: true,
             showlegend: false,
-            height: 250,
+            height: 300,
 
             margin: {
               b: 40,

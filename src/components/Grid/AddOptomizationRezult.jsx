@@ -42,12 +42,12 @@ function AddOptomizationRezult(props) {
   return (
     <div className="statImpact">
       <Heading align="center" my={2} size="sm" className="smallHeader">
-        Optimization impact
+        Impact of optimization on profit
       </Heading>
 
       <StatGroup align="center">
         <Stat>
-          <StatLabel>Volume sold</StatLabel>
+          <StatLabel>Sales Increase </StatLabel>
           <StatNumber>{volumeDif} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
@@ -56,7 +56,7 @@ function AddOptomizationRezult(props) {
         </Stat>
 
         <Stat>
-          <StatLabel>Average Price</StatLabel>
+          <StatLabel>Price Increase </StatLabel>
           <StatNumber>{priceDif} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
@@ -64,7 +64,7 @@ function AddOptomizationRezult(props) {
           </StatHelpText>
         </Stat>
         <Stat>
-          <StatLabel>Costs Decrease</StatLabel>
+          <StatLabel>Costs Decrease </StatLabel>
           <StatNumber>{costsDif} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
@@ -72,7 +72,7 @@ function AddOptomizationRezult(props) {
           </StatHelpText>
         </Stat>
         <Stat>
-          <StatLabel>Total</StatLabel>
+          <StatLabel>Total Profit</StatLabel>
           <StatNumber>{sumEuro} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />

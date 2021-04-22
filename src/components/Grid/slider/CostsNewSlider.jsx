@@ -16,7 +16,7 @@ class CostsNewSlider extends Component {
             onChange={this.props.handleCostsOnChange}
           />
           <div className="valueBox">
-            <p className="sliderValue">{this.props.costsValue}</p>
+            <p className="sliderValue">{this.props.costsValue} %</p>
           </div>
         </Flex>
       </>

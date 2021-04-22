@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Heading, VStack, Spacer, Box } from "@chakra-ui/react";
 
 function AddCurrentStateList(props) {
-  const { revenue, totalCosts, netProfit, ebitda } = props;
+  const { revenue, totalCosts, netProfit, ebitda, variableCosts } = props;
   return (
     <div className="inputForm currentState" my={4}>
       <Heading
@@ -18,22 +18,23 @@ function AddCurrentStateList(props) {
         <Flex className="currentResult">
           <Box>Revenue</Box>
           <Spacer />
-          <Box>{revenue}</Box>
+          <Box>{revenue} €</Box>
+        </Flex>
+        <Flex className="currentResult">
+          <Box>Variable costs</Box>
+          <Spacer />
+          <Box>{variableCosts} €</Box>
         </Flex>
         <Flex className="currentResult">
           <Box>Total Costs</Box>
           <Spacer />
-          <Box>{totalCosts}</Box>
+          <Box>{totalCosts} €</Box>
         </Flex>
-        <Flex className="currentResult">
-          <Box>EBIDTA</Box>
-          <Spacer />
-          <Box>{ebitda} </Box>
-        </Flex>
+
         <Flex className="currentNetProfit">
           <Box>Net Profit</Box>
           <Spacer />
-          <Box>{netProfit} </Box>
+          <Box>{netProfit} €</Box>
         </Flex>
       </Box>
     </div>
