@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box, Spacer } from "@chakra-ui/react";
 
 class PriceNewSlider extends Component {
   render() {
@@ -19,6 +19,13 @@ class PriceNewSlider extends Component {
             <p className="sliderValue">{this.props.priceValue} %</p>
           </div>
         </Flex>
+        <Box className="sliderMinMax">
+          <Flex className="sliderMinMax">
+            <Box>0</Box>
+            <Spacer />
+            <Box>50</Box>
+          </Flex>
+        </Box>
       </>
     );
   }

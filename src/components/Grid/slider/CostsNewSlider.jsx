@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Box, Spacer } from "@chakra-ui/react";
 
 class CostsNewSlider extends Component {
   render() {
@@ -10,15 +10,22 @@ class CostsNewSlider extends Component {
           <input
             type="range"
             min={0}
-            max={300}
+            max={100}
             value={this.props.costsValue}
-            className="slider"
+            className="slider "
             onChange={this.props.handleCostsOnChange}
           />
           <div className="valueBox">
             <p className="sliderValue">{this.props.costsValue} %</p>
           </div>
         </Flex>
+        <Box className="sliderMinMax">
+          <Flex className="sliderMinMax">
+            <Box>0</Box>
+            <Spacer />
+            <Box>100</Box>
+          </Flex>
+        </Box>
       </>
     );
   }

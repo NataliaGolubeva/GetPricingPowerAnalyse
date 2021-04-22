@@ -2,7 +2,6 @@ import React from "react";
 import SalesSlider from "./slider/SalesSlider";
 import PriceNewSlider from "./slider/PricenewSlider";
 import CostsNewSlider from "./slider/CostsNewSlider";
-import AddSalesSlider from "./slider/AddSalesSlider";
 import { Heading } from "@chakra-ui/react";
 
 function AddSliderOptimization(props) {

@@ -2,6 +2,7 @@ import React from "react";
 import Plot from "react-plotly.js";
 function BasicWaterfall(props) {
   const { volume, price, costs, total, netProfit } = props;
+
   class App extends React.Component {
     render() {
       return (
@@ -49,7 +50,7 @@ function BasicWaterfall(props) {
             },
             autosize: true,
             showlegend: false,
-            height: 300,
+            height: 296,
 
             margin: {
               b: 40,

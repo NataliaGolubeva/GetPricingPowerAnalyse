@@ -70,6 +70,9 @@ function InputFront() {
           taxes={taxes}
           targetProfit={targetProfit}
           revenue={revenue}
+          variableCosts={variableCosts}
+          totalCosts={totalCosts}
+          netProfit={netProfit}
           onFormSubmit={handleFormSubmit}
           onVolumeChange={handleVolumeChange}
           onPriceChange={handlePriceChange}

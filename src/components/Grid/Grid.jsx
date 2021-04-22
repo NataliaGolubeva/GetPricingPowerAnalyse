@@ -122,7 +122,7 @@ function MainGrid(props) {
     NewPrice = () => {
       const newPrice = (
         price +
-        (price * parseInt(this.state.priceValue)) / 100
+        (price * parseFloat(this.state.priceValue)) / 100
       ).toFixed(2);
       return newPrice;
     };

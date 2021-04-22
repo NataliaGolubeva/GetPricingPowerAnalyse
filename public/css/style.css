@@ -9,6 +9,7 @@ body {
   border-radius: 3%;
   box-shadow: 0px 0px 6px 2px #6b6977;
   padding-bottom: 2em;
+  font-weight: 600;
 }
 .currentState {
   margin: 1.2em;
@@ -31,9 +32,8 @@ body {
 .wrapper {
   border-radius: 3%;
   box-shadow: 0px 0px 3px 1px #477dcf;
-  padding: 5px;
+  padding: 6px;
   margin: 2vh;
-  padding-bottom: 1rem;
   padding-left: 10px;
   padding-right: 10px;
   color: black;
@@ -124,8 +124,13 @@ label {
   padding-top: 3px;
 }
 .sliderLegend {
-  margin-top: 10px;
+  margin-top: 3px;
   font-weight: 600;
+}
+.sliderMinMax {
+  margin-right: 2.4rem;
+  font-size: 13px;
+  margin-top: -11px;
 }
 .statImpact {
   color: black;

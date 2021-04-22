@@ -26,6 +26,9 @@ function AddOptomizationRezult(props) {
     sumEuro,
     sumPercent,
   } = props;
+  function formatValue(val) {
+    return val.toLocaleString("fi-FI");
+  }
   if (!salesValue && !priceValue && !costsValue) {
     return (
       <div className="statImpact">
@@ -48,7 +51,7 @@ function AddOptomizationRezult(props) {
       <StatGroup align="center">
         <Stat>
           <StatLabel>Sales Increase </StatLabel>
-          <StatNumber>{volumeDif} €</StatNumber>
+          <StatNumber>{formatValue(volumeDif)} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
             {volumeDifPercent} %
@@ -57,7 +60,7 @@ function AddOptomizationRezult(props) {
 
         <Stat>
           <StatLabel>Price Increase </StatLabel>
-          <StatNumber>{priceDif} €</StatNumber>
+          <StatNumber>{formatValue(priceDif)} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
             {priceDifPercent} %
@@ -65,7 +68,7 @@ function AddOptomizationRezult(props) {
         </Stat>
         <Stat>
           <StatLabel>Costs Decrease </StatLabel>
-          <StatNumber>{costsDif} €</StatNumber>
+          <StatNumber>{formatValue(costsDif)} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
             {costsDifPercent} %
@@ -73,7 +76,7 @@ function AddOptomizationRezult(props) {
         </Stat>
         <Stat>
           <StatLabel>Total Profit</StatLabel>
-          <StatNumber>{sumEuro} €</StatNumber>
+          <StatNumber>{formatValue(sumEuro)} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
             {sumPercent} %
@@ -83,13 +86,13 @@ function AddOptomizationRezult(props) {
       <StatGroup align="center" mt={4}>
         <Stat className="currentPrice">
           <StatLabel>Current price</StatLabel>
-          <StatNumber>{price} €</StatNumber>
+          <StatNumber>{formatValue(price)} €</StatNumber>
           <StatHelpText>Average</StatHelpText>
         </Stat>
 
         <Stat className="newPrice">
           <StatLabel>New Price</StatLabel>
-          <StatNumber>{newPrice} €</StatNumber>
+          <StatNumber>{formatValue(newPrice)} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
             {priceValue} %

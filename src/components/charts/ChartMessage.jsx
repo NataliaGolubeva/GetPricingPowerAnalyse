@@ -18,7 +18,7 @@ function ChartMessage(props) {
   } else if (cleanTotal > 100) {
     return (
       <Heading mt={7} mb={3} align="center" size="sm">
-        Your goal is exceed for {cleanTotal - 100} %
+        Your goal is exceed by {cleanTotal - 100} %
       </Heading>
     );
   }
