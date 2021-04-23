@@ -53,18 +53,7 @@ function AddInputForm(props) {
             maxWidth="80%"
           />
         </Flex>
-
         <Flex mb={3}>
-          <label htmlFor="taxes">Taxes:</label>
-          <InputPercent
-            className="taxes"
-            value={props.taxes}
-            onChange={props.onTaxesChange}
-            maxWidth="80%"
-          />
-        </Flex>
-
-        <Flex>
           <label htmlFor="targetProfit">Target profit:</label>
           <InputEuro
             className="targetProfit"

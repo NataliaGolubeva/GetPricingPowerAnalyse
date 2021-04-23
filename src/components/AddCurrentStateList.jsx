@@ -34,7 +34,7 @@ function AddCurrentStateList(props) {
           <Box>{formatValue(totalCosts)} €</Box>
         </Flex>
 
-        <Flex className="currentNetProfit">
+        <Flex className="currentNetProfit" mb={5}>
           <Box>Net Profit</Box>
           <Spacer />
           <Box>{formatValue(netProfit)} €</Box>
