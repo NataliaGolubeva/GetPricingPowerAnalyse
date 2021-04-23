@@ -7,7 +7,7 @@ function ChartMessage(props) {
     return (
       <Heading mt={7} mb={3} align="center" size="sm">
         Optimize for {100 - cleanTotal} % or {totalEuroFromGoal} € more to reach
-        you target profit
+        your target profit
       </Heading>
     );
   } else if (cleanTotal === 100) {

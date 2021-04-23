@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
-
 import AddSliderOptimization from "./AddSliderOptimization";
 import AddOptomizationRezult from "./AddOptomizationRezult";
 import BasicWaterfall from "../charts/BasicWaterfall";
@@ -53,7 +52,7 @@ function MainGrid(props) {
     PriceProfitDif = () => {
       const revenue =
         ((price * parseInt(this.state.priceValue)) / 100 + price) * volume;
-      const totalCosts = (cogs / 100) * revenue + costs;
+      const totalCosts = varCostsEuro + costs;
       const netPr = revenue - totalCosts;
       const dif = Math.round(netPr - netProfit);
       return parseInt(dif);
@@ -62,7 +61,7 @@ function MainGrid(props) {
     PriceProfitDifPercent = () => {
       const revenue =
         ((price * parseInt(this.state.priceValue)) / 100 + price) * volume;
-      const totalCosts = (cogs / 100) * revenue + costs;
+      const totalCosts = varCostsEuro + costs;
       const netPr = revenue - totalCosts;
       const dif = Math.round(netPr - netProfit);
       const difPercent = ((dif / netProfit) * 100).toFixed(2);
@@ -157,21 +156,41 @@ function MainGrid(props) {
               priceDifPercent={this.PriceProfitDifPercent()}
               costsDif={this.CostsProfitDif()}
               costsDifPercent={this.CostsProfitDifPercent()}
-              sumEuro={this.TotalProfitDif()}
-              sumPercent={this.TotalProfitDifPercent()}
+              sumEuro={
+                this.VolumeProfitDif() +
+                this.PriceProfitDif() +
+                this.CostsProfitDif()
+              }
+              sumPercent={(
+                parseFloat(this.VolumeProfitDifPercent()) +
+                parseFloat(this.PriceProfitDifPercent()) +
+                parseFloat(this.CostsProfitDifPercent())
+              ).toFixed(2)}
             />
           </GridItem>
 
           <GridItem rowSpan={1} colSpan={5} bg="brand.300">
             <BulletChart
               totalPercentFromGoal={
-                (this.TotalProfitDif() / (targetProfit - netProfit)) * 100
+                ((this.VolumeProfitDif() +
+                  this.PriceProfitDif() +
+                  this.CostsProfitDif()) /
+                  (targetProfit - netProfit)) *
+                100
               }
               totalEuroFromGoal={
-                targetProfit - netProfit - this.TotalProfitDif()
+                targetProfit -
+                netProfit -
+                (this.VolumeProfitDif() +
+                  this.PriceProfitDif() +
+                  this.CostsProfitDif())
               }
               targetProfit={targetProfit}
-              total={this.TotalProfitDifPercent()}
+              total={(
+                parseFloat(this.VolumeProfitDifPercent()) +
+                parseFloat(this.PriceProfitDifPercent()) +
+                parseFloat(this.CostsProfitDifPercent())
+              ).toFixed(2)}
             />
           </GridItem>
           <GridItem rowSpan={1} colSpan={5} pt={5}>
@@ -179,7 +198,12 @@ function MainGrid(props) {
               volume={this.VolumeProfitDif()}
               price={this.PriceProfitDif()}
               costs={this.CostsProfitDif()}
-              total={this.TotalProfitDif()}
+              total={
+                this.VolumeProfitDif() +
+                this.PriceProfitDif() +
+                this.CostsProfitDif() +
+                netProfit
+              }
               netProfit={netProfit}
             />
           </GridItem>

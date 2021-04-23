@@ -1,19 +1,12 @@
 import React from "react";
-import { VStack, Flex, Heading, Box, Spacer } from "@chakra-ui/react";
+import { VStack, Flex, Heading, Box } from "@chakra-ui/react";
 import InputEuro from "./input/Input";
 import InputPercent from "./input/InputPercent";
 import SimpleInput from "./input/simpleInput";
 import FloatInput from "./input/FloatInput";
 
 function AddInputForm(props) {
-  const {
-    volume,
-    onVolumeChange,
-    revenue,
-    totalCosts,
-    netProfit,
-    variableCosts,
-  } = props;
+  const { volume, onVolumeChange } = props;
   function formatValue(val) {
     return val.toLocaleString("fi-FI");
   }

@@ -71,6 +71,8 @@ label {
   border: 1px rgb(36, 36, 92) solid;
   border-radius: 25px;
   color: white;
+  height: 85px;
+  font-size: 2em;
 }
 .newPrice {
   margin: 5px;
@@ -78,8 +80,11 @@ label {
   border: 1px rgb(149, 212, 231) solid;
   border-radius: 25px;
   color: white;
+  height: 85px;
 }
-
+.priceLabel {
+  font-weight: 600;
+}
 .slider {
   -webkit-appearance: none;
   width: 80%;

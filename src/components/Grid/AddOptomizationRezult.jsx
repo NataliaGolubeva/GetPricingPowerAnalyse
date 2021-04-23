@@ -9,6 +9,9 @@ import {
   StatArrow,
   Heading,
   Image,
+  Flex,
+  Box,
+  Spacer,
 } from "@chakra-ui/react";
 function AddOptomizationRezult(props) {
   const {
@@ -45,7 +48,7 @@ function AddOptomizationRezult(props) {
   return (
     <div className="statImpact">
       <Heading align="center" my={2} size="sm" className="smallHeader">
-        Optimization impact VS current Net Profit
+        Optimization from:
       </Heading>
 
       <StatGroup align="center">
@@ -75,7 +78,7 @@ function AddOptomizationRezult(props) {
           </StatHelpText>
         </Stat>
         <Stat>
-          <StatLabel>Total Profit</StatLabel>
+          <StatLabel>Total</StatLabel>
           <StatNumber>{formatValue(sumEuro)} €</StatNumber>
           <StatHelpText>
             <StatArrow type="increase" />
@@ -85,18 +88,28 @@ function AddOptomizationRezult(props) {
       </StatGroup>
       <StatGroup align="center" mt={4}>
         <Stat className="currentPrice">
-          <StatLabel>Current price</StatLabel>
-          <StatNumber>{formatValue(price)} €</StatNumber>
-          <StatHelpText>Average</StatHelpText>
+          <StatLabel mt={2} className="priceLabel">
+            Current price
+          </StatLabel>
+          <StatNumber mt={1}>{formatValue(price)} €</StatNumber>
         </Stat>
 
         <Stat className="newPrice">
-          <StatLabel>New Price</StatLabel>
-          <StatNumber>{formatValue(newPrice)} €</StatNumber>
-          <StatHelpText>
-            <StatArrow type="increase" />
-            {priceValue} %
-          </StatHelpText>
+          <Box mx={12}>
+            <StatLabel mt={2}>New Price</StatLabel>
+            <Flex>
+              <Box>
+                <StatNumber mt={1}>{formatValue(newPrice)} €</StatNumber>
+              </Box>
+              <Spacer />
+              <Box mt={3}>
+                <StatHelpText>
+                  <StatArrow type="increase" />
+                  {priceValue} %
+                </StatHelpText>
+              </Box>
+            </Flex>
+          </Box>
         </Stat>
       </StatGroup>
     </div>
