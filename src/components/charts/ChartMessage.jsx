@@ -1,12 +1,13 @@
 import React from "react";
 import { Heading } from "@chakra-ui/react";
 function ChartMessage(props) {
-  const { total } = props;
-  const cleanTotal = Math.round(total);
+  const { totalEuroExceed, totalPercentFromGoal, totalEuroFromGoal } = props;
+  const cleanTotal = Math.round(totalPercentFromGoal);
   if (cleanTotal < 100) {
     return (
       <Heading mt={7} mb={3} align="center" size="sm">
-        Optimize for {100 - cleanTotal} % more to reach you target profit
+        Optimize for {100 - cleanTotal} % or {totalEuroFromGoal} € more to reach
+        you target profit
       </Heading>
     );
   } else if (cleanTotal === 100) {
@@ -18,7 +19,7 @@ function ChartMessage(props) {
   } else if (cleanTotal > 100) {
     return (
       <Heading mt={7} mb={3} align="center" size="sm">
-        Your goal is exceed by {cleanTotal - 100} %
+        Your goal is exceed by {cleanTotal - 100} % or {totalEuroExceed} €
       </Heading>
     );
   }

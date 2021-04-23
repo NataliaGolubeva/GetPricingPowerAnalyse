@@ -45,7 +45,7 @@ function AddOptomizationRezult(props) {
   return (
     <div className="statImpact">
       <Heading align="center" my={2} size="sm" className="smallHeader">
-        Impact of optimization on profit
+        Optimization impact VS current Net Profit
       </Heading>
 
       <StatGroup align="center">

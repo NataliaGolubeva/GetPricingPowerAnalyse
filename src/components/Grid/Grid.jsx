@@ -110,8 +110,8 @@ function MainGrid(props) {
         ((volume * parseInt(this.state.salesValue)) / 100 + volume) *
         ((price * parseInt(this.state.priceValue)) / 100 + price);
       const totalCosts =
-        varCostsEuro -
-        (parseInt(this.state.costsValue) / 100) * varCostsEuro +
+        (cogs / 100) * revenue -
+        (parseInt(this.state.costsValue) / 100) * (cogs / 100) * revenue +
         costs;
       const netPr = revenue - totalCosts;
       const dif = Math.round(netPr - netProfit);
@@ -164,13 +164,14 @@ function MainGrid(props) {
 
           <GridItem rowSpan={1} colSpan={5} bg="brand.300">
             <BulletChart
-              total={(
-                ((this.VolumeProfitDif() +
-                  this.PriceProfitDif() +
-                  this.CostsProfitDif()) /
-                  (targetProfit - netProfit)) *
-                100
-              ).toFixed(2)}
+              totalPercentFromGoal={
+                (this.TotalProfitDif() / (targetProfit - netProfit)) * 100
+              }
+              totalEuroFromGoal={
+                targetProfit - netProfit - this.TotalProfitDif()
+              }
+              targetProfit={targetProfit}
+              total={this.TotalProfitDifPercent()}
             />
           </GridItem>
           <GridItem rowSpan={1} colSpan={5} pt={5}>
@@ -178,12 +179,7 @@ function MainGrid(props) {
               volume={this.VolumeProfitDif()}
               price={this.PriceProfitDif()}
               costs={this.CostsProfitDif()}
-              total={Math.round(
-                this.VolumeProfitDif() +
-                  this.PriceProfitDif() +
-                  this.CostsProfitDif() +
-                  netProfit
-              )}
+              total={this.TotalProfitDif()}
               netProfit={netProfit}
             />
           </GridItem>

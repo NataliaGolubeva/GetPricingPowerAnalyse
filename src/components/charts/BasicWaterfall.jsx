@@ -38,7 +38,7 @@ function BasicWaterfall(props) {
           ]}
           layout={{
             title: {
-              text: "Optimization result",
+              text: "Optimization impact",
             },
             xaxis: {
               type: "category",

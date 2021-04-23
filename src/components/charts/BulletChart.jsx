@@ -2,7 +2,12 @@ import React from "react";
 import { ChartBullet } from "@patternfly/react-charts";
 import ChartMessage from "./ChartMessage";
 function BulletChart(props) {
-  const { total } = props;
+  const {
+    total,
+    targetProfit,
+    totalPercentFromGoal,
+    totalEuroFromGoal,
+  } = props;
   class BulletCharts extends React.Component {
     constructor(props) {
       super(props);
@@ -33,7 +38,13 @@ function BulletChart(props) {
       const { width } = this.state;
       return (
         <div ref={this.containerRef} style={{ height: "180px" }}>
-          <ChartMessage total={total} />
+          <ChartMessage
+            targetProfit={targetProfit}
+            total={total}
+            totalPercentFromGoal={totalPercentFromGoal}
+            totalEuroFromGoal={totalEuroFromGoal}
+            totalEuroExceed={-1 * totalEuroFromGoal}
+          />
           <ChartBullet
             ariaDesc="Optimization"
             ariaTitle="Optimization for target profit"
@@ -51,7 +62,9 @@ function BulletChart(props) {
               right: 70,
               top: 5,
             }}
-            primarySegmentedMeasureData={[{ name: "Total in %", y: total }]}
+            primarySegmentedMeasureData={[
+              { name: "Total in %", y: totalPercentFromGoal },
+            ]}
             primarySegmentedMeasureLegendData={[{ name: "Total" }]}
             qualitativeRangeData={[
               { name: "Target", y: 100 },
