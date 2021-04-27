@@ -57,10 +57,8 @@ function BulletChart(props) {
             legendPosition="bottom-left"
             maxDomain={{ y: 100 }}
             padding={{
-              bottom: 50,
               left: 0,
               right: 70,
-              top: 5,
             }}
             primarySegmentedMeasureData={[
               { name: "Total in %", y: totalPercentFromGoal },

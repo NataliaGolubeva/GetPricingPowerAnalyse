@@ -38,7 +38,7 @@ function BasicWaterfall(props) {
           ]}
           layout={{
             title: {
-              text: "Optimization impact",
+              text: "Impact of the optimization per growth driver",
             },
             xaxis: {
               type: "category",
@@ -47,20 +47,22 @@ function BasicWaterfall(props) {
             yaxis: {
               type: "linear",
               ticktext: [netProfit, "", "", ""],
+              autorange: true,
             },
             autosize: true,
             showlegend: false,
-            height: 250,
+            height: 405,
 
             margin: {
               b: 40,
-              t: 40,
+              t: 50,
               pad: 5,
             },
           }}
           useResizeHandler={true}
           style={{
             width: "100%",
+            height: "405px",
           }}
         />
       );

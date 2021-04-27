@@ -129,7 +129,7 @@ function MainGrid(props) {
     render() {
       return (
         <Grid
-          templateRows="repeat(2fr 0.7fr 2.3fr)"
+          templateRows="repeat(2fr 0.6fr 2.4fr)"
           templateColumns="repeat(5, 1fr)"
           gap={0}
         >
@@ -193,7 +193,7 @@ function MainGrid(props) {
               ).toFixed(2)}
             />
           </GridItem>
-          <GridItem rowSpan={1} colSpan={5} pt={5}>
+          <GridItem rowSpan={1} colSpan={5} pt={1}>
             <BasicWaterfall
               volume={this.VolumeProfitDif()}
               price={this.PriceProfitDif()}

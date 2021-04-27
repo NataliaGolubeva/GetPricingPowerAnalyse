@@ -38,7 +38,7 @@ function AddOptomizationRezult(props) {
         <Image
           src="./images/project-costs.png"
           alt="Calculating costs"
-          boxSize="230px"
+          boxSize="214px"
           objectFit="cover"
           className="image"
         />
@@ -47,7 +47,7 @@ function AddOptomizationRezult(props) {
   }
   return (
     <div className="statImpact">
-      <Heading align="center" my={2} size="sm" className="smallHeader">
+      <Heading align="center" my={1} size="sm" className="smallHeader">
         Optimization from:
       </Heading>
 
@@ -86,7 +86,7 @@ function AddOptomizationRezult(props) {
           </StatHelpText>
         </Stat>
       </StatGroup>
-      <StatGroup align="center" mt={4}>
+      <StatGroup align="center" mt={2}>
         <Stat className="currentPrice">
           <StatLabel mt={2} className="priceLabel">
             Current price

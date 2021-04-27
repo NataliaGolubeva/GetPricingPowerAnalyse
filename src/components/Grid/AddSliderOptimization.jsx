@@ -16,7 +16,7 @@ function AddSliderOptimization(props) {
   return (
     <div className="App">
       <div className="wrapper">
-        <Heading size="sm" my={3} textAlign="center" className="smallHeader">
+        <Heading size="sm" my={1} textAlign="center" className="smallHeader">
           Optimization instruments
         </Heading>
 

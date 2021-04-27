@@ -38,6 +38,7 @@ body {
   padding-right: 10px;
   color: black;
   width: 100%;
+  padding-bottom: 15px;
 }
 .App {
   display: flex;
@@ -71,7 +72,7 @@ label {
   border: 1px rgb(36, 36, 92) solid;
   border-radius: 25px;
   color: white;
-  height: 85px;
+  height: 75px;
   font-size: 2em;
 }
 .newPrice {
@@ -80,7 +81,9 @@ label {
   border: 1px rgb(149, 212, 231) solid;
   border-radius: 25px;
   color: white;
-  height: 85px;
+  height: 75px;
+  padding-left: 27px;
+  padding-right: 27px;
 }
 .priceLabel {
   font-weight: 600;
@@ -95,7 +98,7 @@ label {
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
   border-radius: 12px;
-  margin-top: 8px;
+  margin-top: 2px;
 }
 .slider:hover {
   opacity: 1;
@@ -135,7 +138,7 @@ label {
 .sliderMinMax {
   margin-right: 2.4rem;
   font-size: 13px;
-  margin-top: -11px;
+  margin-top: -18px;
 }
 .statImpact {
   color: black;
@@ -145,9 +148,7 @@ label {
   padding-bottom: 8px;
   text-transform: uppercase;
 }
-#root {
-  height: 100vh;
-}
+
 .sliderValue {
   color: white;
 }
@@ -155,5 +156,4 @@ label {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 0.7em;
 }
